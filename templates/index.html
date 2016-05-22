@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf8">
+    <title>gin sample</title>
+  </head>
+  <body>
+    <h1>hello world</h1>
+    <div class="delete-message-display"></div>
+    <div class="session-display"></div>
+    <input type="button" class="add" value="add">
+    <input type="button" class="delete" value="delete">
+    <script src="https://code.jquery.com/jquery-3.0.0-beta1.min.js"></script>
+    <script>
+     $(function(){
+         $(".add").on("click", function(){
+           $.ajax({
+               url: "/api/v1/session/",
+               method: "GET",
+               success: function(data) {
+                   console.log(data.count);
+                   var $sessionDisplay = $('.session-display')
+                   console.log($sessionDisplay);
+                   $sessionDisplay.html(data.count);
+               }
+           });
+         });
+         $(".delete").on("click", function(){
+           $.ajax({
+               url: "/api/v1/session/",
+               method: "DELETE",
+               success: function(data) {
+                   console.log(data.message);
+                   $('.delete-message-display').html(data.message);
+               }
+           });
+         });
+
+     });
+    </script>
+  </body>
+</html>
