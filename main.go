@@ -1,9 +1,9 @@
 package main
 
 import (
-	"/api/v1/root"
-	"/api/v1/session"
-	"/web"
+	"api/v1/root"
+	"api/v1/session"
+	"web"
 
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
